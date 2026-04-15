@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <title>Լեոնիդ Ազգալդյանի անվան N200 Դպրոց</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&family=Noto+Sans+Armenian:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --gold: #d4af37;
+            --text-main: #334155;
+            --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            font-family: 'Noto Sans Armenian', 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .progress-container { position: fixed; top: 0; z-index: 9999; width: 100%; height: 4px; background: transparent; }
+        .progress-bar { height: 4px; background: var(--accent); width: 0%; }
+
+        .w3-top .w3-bar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            padding: 15px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .w3-bar-item { border-radius: 12px; transition: var(--transition); font-weight: 600; }
+        .w3-bar-item:hover { background-color: var(--accent) !important; color: white !important; transform: translateY(-3px); }
+
+        header { height: 90vh; position: relative; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); background: var(--primary); }
+        header img { opacity: 0.6; filter: brightness(0.7) contrast(1.1); transition: 10s ease; }
+        header:hover img { transform: scale(1.1); }
+
+        .hero-title { font-weight: 800; letter-spacing: -1px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        .legacy-card {
+            background: white;
+            border-left: 10px solid var(--gold);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white; border-radius: 24px; padding: 40px 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; transition: var(--transition);
+        }
+        .stat-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(37, 99, 235, 0.1); }
+        .stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 5px; }
+
+        .teacher-photo {
+            width: 100%; height: 320px; object-fit: cover; border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 6px solid white; transition: var(--transition);
+        }
+        .teacher-photo:hover { transform: scale(1.05) rotate(2deg); border-color: var(--accent); }
+
+        .section-title { font-weight: 800; position: relative; display: inline-block; margin-bottom: 50px; color: var(--primary); }
+        .section-title::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 5px; background: var(--accent); border-radius: 10px; }
+
+        #contact-box { background: var(--primary); color: white; border-radius: 40px; padding: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        #backToTop { position: fixed; bottom: 30px; right: 30px; z-index: 99; background: var(--accent); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        iframe { border-radius: 30px; filter: grayscale(0.2); transition: 0.5s; }
+        iframe:hover { filter: grayscale(0); }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <button onclick="topFunction()" id="backToTop" title="Վերև">↑</button>
+
+    <div class="w3-top">
+        <div class="w3-bar w3-white">
+            <a href="#home" class="w3-bar-item w3-button w3-text-blue" style="font-size: 1.2rem;"><b>N200</b> SCHOOL</a>
+            <div class="w3-right w3-hide-small">
+                <a href="#legacy" class="w3-bar-item w3-button">Անվանակոչում</a>
+                <a href="#about" class="w3-bar-item w3-button">Մեր Մասին</a>
+                <a href="#teachers" class="w3-bar-item w3-button">Անձնակազմ</a>
+                <a href="#contact" class="w3-bar-item w3-button w3-blue w3-round-large" style="margin-left:10px">Կապ</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="w3-display-container w3-content" style="max-width:2000px;" id="home">
+        <img src="https://scontent.fevn9-2.fna.fbcdn.net/v/t39.30808-6/480910447_1176699477792644_4137105307381119923_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2a1932&_nc_ohc=-wu2kBYLISwQ7kNvwFRBBDF&_nc_oc=AdrvIZjA3rA56ksA0Lbg2vnOZq147Fuxq1Kx7myXjzR5PCiGE1i2pU6nZu8Lg39g_BA&_nc_zt=23&_nc_ht=scontent.fevn9-2.fna&_nc_gid=yV_xA8qodopqh026ngOrjg&_nc_ss=7a3a8&oh=00_Af3xnCUgXmmiVriOBUoneBFvsL7UxMqEkVDkk16oHNfa-A&oe=69E5ADFC" alt="School" style="width:100%; height:100%; object-fit:cover;">
+        <div class="w3-display-middle w3-center">
+            <h1 class="w3-text-white hero-title w3-xxjumbo">
+                ԼԵՈՆԻԴ ԱԶԳԱԼԴՅԱՆԻ ԱՆՎԱՆ<br>
+                <span style="color: #60a5fa;">ԹԻՎ 200 ԴՊՐՈՑ</span>
+            </h1>
+        </div>
+    </header>
+
+    <div class="w3-content" style="max-width:1200px">
+        <div class="legacy-card reveal" id="legacy">
+            <h2 style="font-weight:800; color: var(--primary);"><i class="fa fa-star w3-text-amber"></i> Դպրոցի Անվանակոչումը</h2>
+            <p style="line-height:1.8;">2019թ. հուլիսին Երևանի քաղաքապետի որոշմամբ հ. 200 հիմնական դպրոցն անվանակոչվեց ԼՂՀ և ՀՀ <b>«Մարտական խաչ» առաջին աստիճանի շքանշանակիր</b>, Արցախի հերոս <b>Լեոնիդ Ազգալդյանի</b> անունով:</p>
+            <p style="line-height:1.8;">Դպրոցի ցուցատախտակի բացման պատիվը վերապահվել է հերոսի քրոջը՝ Նելլի Ազգալդյանին: Միջոցառմանը ներկա են գտնվել քաղաքային իշխանության ներկայացուցիչներ և Ազգալդյանի մարտական ընկերները:</p>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-center reveal">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="stat-card">
+                    <span class="stat-number">1300+</span>
+                    <p class="w3-opacity w3-large">Աշակերտներ</p>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="stat-card">
+                    <span class="stat-number">85+</span>
+                    <p class="w3-opacity w3-large">Մասնագետներ</p>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="stat-card">
+                    <span class="stat-number">2019</span>
+                    <p class="w3-opacity w3-large">Անվանակոչման տարին</p>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <p class="w3-opacity w3-large">Որակյալ կրթություն</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container w3-padding-64 reveal" id="about">
+            <h2 class="section-title">Մեր Մասին</h2>
+            <div class="w3-row">
+                <div class="w3-col m6 w3-padding-large">
+                    <p class="w3-large" style="line-height:1.8">Լեոնիդ Ազգալդյանի անվան թիվ 200 հիմնական դպրոցը հանդիսանում է կրթության որակի և ավանդույթների պահպանման կենտրոն։ Մեր նպատակն է կերտել գրագետ, հայրենասեր և ժամանակակից հմտություններով օժտված սերունդ։</p>
+                </div>
+                <div class="w3-col m6 w3-padding-large">
+                    <img src="https://www.cta.org/wp-content/uploads/2020/03/empty-classroom.jpg" class="w3-round-large w3-image w3-shadow" alt="School Inside">
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container w3-padding-64 reveal" id="teachers">
+            <h2 class="section-title">Տնօրինություն</h2>
+            
+            <div class="w3-center w3-padding-32">
+                <img src="https://df.am/img/news/big/1592590088-4918.jpeg" class="teacher-photo" style="max-width:300px">
+                <h3 style="font-weight:700">Մարինե Հովհաննիսյան</h3>
+                <p class="w3-text-blue w3-xlarge">Տնօրեն</p>
+            </div>
+
+            <div class="w3-row-padding w3-center w3-margin-top">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk9b_CaYpERj4sgJ3IBvQWWFYJzaMLNCn05w&s" class="teacher-photo">
+                    <h4 style="font-weight:700">Անահիտ Կոստանդյան</h4>
+                    <p class="w3-opacity w3-small">Ուսումնական գծով փոխտնօրեն</p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyQVnvEcFs6YflU9TagELhLzy5oeC71VIaZw&s" class="teacher-photo">
+                    <h4 style="font-weight:700">Կարինե Կարապետյան</h4>
+                    <p class="w3-opacity w3-small">Մասնագիտացված կրթ. աջակցությունների գծով փոխտնօրեն</p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy8aot8-An_35PL9h7ufAexiqYOJx8mcCfCg&s" class="teacher-photo">
+                    <h4 style="font-weight:700">Ռուզաննա Դավթյան</h4>
+                    <p class="w3-opacity w3-small">Դասիարակչական աշխատանքների կազմակերպիչ</p>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJvorgSifyZLTR6SiD5EdBbuLZtlLq0XbMmA&s" class="teacher-photo">
+                    <h4 style="font-weight:700">Գայանե Կարապետյան</h4>
+                    <p class="w3-opacity w3-small">Տնտեսական գծով փոխտնօրեն</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container w3-padding-64 reveal" id="contact">
+            <div id="contact-box" class="w3-row">
+                <div class="w3-col m5 w3-padding-large">
+                    <h2 style="font-weight:800">Կապնվեք մեզ հետ</h2>
+                    <hr style="width:50px; border: 2px solid var(--accent)">
+                    <p class="w3-large"><i class="fa fa-map-marker w3-margin-right w3-text-blue"></i> Երևան, Դավթաշեն 1-րդ թաղամաս</p>
+                    <p class="w3-large"><i class="fa fa-phone w3-margin-right w3-text-blue"></i> +374 10 369036</p>
+                    <p class="w3-large"><i class="fa fa-envelope w3-margin-right w3-text-blue"></i> school200@yerevan.am</p>
+                    <div class="w3-padding-16">
+                        <a href="https://www.facebook.com/h200dproc/" target="_blank" class="w3-button w3-blue w3-round-large"><i class="fa fa-facebook"></i> Facebook-ում</a>
+                    </div>
+                </div>
+                <div class="w3-col m7">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.524514005283!2d44.48847705383777!3d40.219638686024325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a97fc1c9c0f9b%3A0x4f98774328440989!2sBasic%20School%20No.200!5e0!3m2!1sru!2sam!4v1776280082564!5m2!1sru!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w3-center w3-padding-64 w3-white">
+        <p class="w3-medium">© 2026 N200 Դպրոց | Պատրաստված է 9-ե դասարանի կողմից</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() { scrollFunction(); updateProgress(); };
+        function updateProgress() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("myBar").style.width = (winScroll / height) * 100 + "%";
+        }
+        function scrollFunction() {
+            var btn = document.getElementById("backToTop");
+            btn.style.display = (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) ? "block" : "none";
+        }
+        function topFunction() { window.scrollTo({top: 0, behavior: 'smooth'}); }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
